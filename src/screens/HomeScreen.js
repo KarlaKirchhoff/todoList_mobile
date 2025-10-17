@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, FlatList, Button } from 'react-native';
 import TaskItem from '../components/TaskItem';
 import { getTasks } from '../services/storage';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { deleteTask } from '../services/storage';
 
 export default function HomeScreen() {
   const [tasks, setTasks] = useState([]);
   const navigation = useNavigation();
 
-  useEffect(() => {
+  /* useEffect(() => {
     getTasks().then(setTasks);
-  }, []);
+  }, []); */
+
+  useFocusEffect(
+    useCallback(() => {
+      getTasks().then(setTasks);
+    }, [])
+  )
 
   return (
     <View>

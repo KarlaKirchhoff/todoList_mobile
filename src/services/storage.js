@@ -12,3 +12,7 @@ export async function saveTask(task) {
   tasks.push(task);
   await AsyncStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
 }
+
+export async function deleteTask(task){
+  await AsyncStorage.removeItem(task);
+}

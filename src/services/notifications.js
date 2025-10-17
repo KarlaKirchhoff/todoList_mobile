@@ -7,6 +7,6 @@ export async function scheduleNotification(task) {
             body: `Tarefa: ${task.title}`,
             data: { taskId: task.id }
         },
-        trigger: { seconds: 5 }
+        trigger: { seconds: 2 }
     })
 }
