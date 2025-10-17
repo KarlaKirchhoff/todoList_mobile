@@ -6,7 +6,7 @@ export default function TaskItem({ task }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{task.title}</Text>
-      <Text style={styles.date}>Concluir até: {new Date(task.dueDate).toLocaleDateString()}</Text>
+      <Text style={styles.date}>Concluir até: {task.dueDate}</Text>
     </View>
   );
 }
