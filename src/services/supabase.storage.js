@@ -1,8 +1,10 @@
 import { supabase } from "../utils/supabase";
 
+const db = 'taks'
+
 export async function getTasks() {
     const { data, error } = await supabase
-        .from('tasks')
+        .from('taks')
         .select('*')
         .order('due_date', { ascending: true });
 
@@ -15,10 +17,10 @@ export async function getTasks() {
 
 export async function saveTasks(task){
     const { error } = await supabase
-    .from('tasks')
+    .from('taks')
     .insert ([{
         title: task.title,
-        due_date: task.due_date
+        due_date: task.dueDate
     }])
 
     if (error) {

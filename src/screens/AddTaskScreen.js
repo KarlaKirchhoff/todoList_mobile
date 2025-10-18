@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button } from 'react-native';
-import { saveTask } from '../services/supabase.storage';
+import { saveTasks } from '../services/supabase.storage';
 import { scheduleNotification } from '../services/notifications';
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,7 +15,7 @@ export default function AddTaskScreen() {
       title,
       dueDate: new Date().toISOString()
     };
-    await saveTask(task);
+    await saveTasks(task);
     await scheduleNotification(task);
     navigation.goBack();
   };

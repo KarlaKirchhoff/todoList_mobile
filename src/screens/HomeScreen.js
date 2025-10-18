@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, FlatList, Button } from 'react-native';
 import TaskItem from '../components/TaskItem';
-import { getTasks } from '../services/storage';
+import { getTasks } from '../services/supabase.storage';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { deleteTask } from '../services/storage';
+
+import LoginScreen from './LoginScreen';
+import SignupScreen from './SignupScreen';
 
 export default function HomeScreen() {
   const [tasks, setTasks] = useState([]);
@@ -19,7 +22,7 @@ export default function HomeScreen() {
     }, [])
   )
 
-  return (
+ /*  return (
     <View>
       <FlatList
         data={tasks}
@@ -28,5 +31,8 @@ export default function HomeScreen() {
       />
       <Button title="Adicionar Tarefa" onPress={() => navigation.navigate('AddTask')} />
     </View>
-  );
+  ); */
+  return (
+    <SignupScreen />
+  )
 }
